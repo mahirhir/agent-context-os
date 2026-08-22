@@ -26,6 +26,23 @@ Claude Code and Codex read the same repository state. Git shows what changed. A 
 
 Context OS does not scrape every account, sync product UIs automatically, or install integrations on setup. Imports are selective, browser-project sync is manual, and external capabilities remain opt-in.
 
+## "Doesn't my agent already have memory?"
+
+Yes — and it's complementary, not competing. Modern agents ship small, automatic memory layers (Claude Code auto-memory, Hermes `MEMORY.md`/`USER.md`, Codex memory files). They are good at what they do. Context OS is a different layer:
+
+| | Agent built-in memory | Context OS repository |
+|---|---|---|
+| Who writes it | The agent, automatically | You, with agent help |
+| What it holds | Environment facts, preferences, lessons learned | Identity, projects, decisions, state, session handoffs |
+| Size | Small and hard-capped (e.g. Hermes: ~2,200 chars; Claude Code: ~100 lines) | Unbounded — it is a git repository |
+| Where it lives | One machine, per profile | Git repo — clones anywhere, works with any agent |
+| Version history | None; entries edited in place | Full git history and diffs |
+| Review before write | No — the agent writes directly | Yes — reviewed proposals and handoffs |
+| Portability | Tied to one agent runtime | Plain Markdown any agent can read |
+| Curation | Agent consolidates when full | `/dream`-style curators produce proposals you apply |
+
+The working rule: **if a fact should be true everywhere, forever, it belongs in this repository; if it only matters to this agent on this machine, let the agent's memory keep it.** Never store the same fact in both without picking one canonical home. Host-specific mappings — including Hermes' background Curator versus the [`/dream` proposal workflow](docs/dream-architecture.md) — are in [memory across agents](docs/memory-across-agents.md).
+
 ## Quick start
 
 Personal and business context often belongs in a private repository. Create an empty private repository first if that applies to you, and never commit credentials or a raw account export.
