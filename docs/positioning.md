@@ -52,3 +52,7 @@ This is not a general knowledge base, a replacement for every notes app, or an a
 ## Feature hierarchy
 
 Lead with the shared repository and lifecycle. Then show migration and portability. Present integrations as optional expansion. Treat Claude Code auto-memory, `/dream`, and hooks as valuable host-specific extensions, not the definition of the whole product.
+
+## Memory positioning
+
+Built-in agent memory is complementary, never a competitor. The README's "Doesn't my agent already have memory?" section carries the canonical comparison; keep it factual and runtime-specific (name only verified runtimes: Claude Code auto-memory, Hermes `MEMORY.md`/`USER.md`). The one-sentence rule: durable facts belong in the repository, machine-local preferences belong to the agent's memory, and no fact lives in both without a declared canonical home.
